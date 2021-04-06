@@ -1,0 +1,26 @@
+<div>
+  <%= raw @movie.movie_url %>
+  <p>movie名：<%= @movie.movie_name %></p>
+  <p>説明：<%= @movie.caption %></p>
+  <p>movieを紹介したユーザー：<%= @movie.user.name %></p>
+  <p>登録日時：<%= @movie.created_at.strftime('%Y/%m/%d') %></p>
+
+  <% if @movie.user == current_user %>
+    <%= link_to "削除", movie_path(@movie), method: :delete %>
+  <% end %>
+
+  <% if @movie.favorited_by?(current_user) %>
+    <p>
+      <%= link_to movie_favorites_path(@movie), method: :delete do %>
+        ♥<%= @movie.favorites.count %> いいね
+      <% end %>
+    </p>
+    <% else %>
+    <p>
+      <%= link_to movie_favorites_path(@movie), method: :post do %>
+        ♡<%= @movie.favorites.count %> いいね
+      <% end %>
+    </p>
+  <% end %>
+
+</div>

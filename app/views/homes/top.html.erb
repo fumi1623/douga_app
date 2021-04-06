@@ -1,0 +1,65 @@
+<main class="top-main">
+
+  <header>
+    <nav class="navbar navbar-light " style="background-color: #7b5544;">
+      <div class="container">
+        <div class="icon text-center">
+          <i class="fas fa-crow fa-2x text-light"></i>
+          <i class="fas fa-crow fa-2x text-light"></i>
+          <i class="fas fa-crow fa-2x text-light"></i>
+        </div>
+
+
+          <ul class="nav">
+
+            <% if user_signed_in? %>
+
+            <li class="nav-item">
+              <%= link_to ' Home', user_path(current_user.id), class: 'fas fa-home nav-link text-light' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to ' Movies', movies_path, class: 'fas fa-book-open nav-link text-light' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to " logout", destroy_user_session_path, method: :delete, class: 'fas fa-sign-out-alt nav-link text-light' %>
+            </li>
+
+
+            <% else %>
+
+            <li class="nav-item">
+              <%= link_to " Home", root_path, class: 'fas fa-home  nav-link text-light' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to " sign up", new_user_registration_path, class: 'fas fa-user-plus nav-link text-light' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to " login", new_user_session_path, class: 'fas fa-sign-in-alt nav-link text-light' %>
+            </li>
+            <% end %>
+          </ul>
+
+      </div>
+    </nav>
+  </header>
+
+  <div class="background" style="background-image: url('<%= asset_path('coffee.jpg') %>')">
+    <div class="container pt-3">
+      <div class="row">
+        <div class="mx-auto col-10">
+          <h1 class="text-center"><i class="fas fa-broadcast-tower"></i> Welcome to douga <i class="fas fa-broadcast-tower"></i></h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="mx-auto col-10">
+          <h1 class="display-1 text-center"><i class="fab fa-youtube"></i></h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="mx-auto col-10 text-center start">
+          <a  href="/users/sign_in"><i class="fas fa-arrow-circle-right start-btn"> Start</i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

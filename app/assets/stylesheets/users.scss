@@ -1,3 +1,23 @@
-// Place all the styles related to the users controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.my-page-main {
+  width: 80%;
+  margin: 100px auto 0 auto;
+  display: flex;
+}
+
+.usei-info-detail {
+  margin-top: 40px;
+}
+
+.my-page-movies {
+  margin-left: 50px;
+}
+
+iframe {
+  width: 300px !important;
+  height: 200px !important;
+}
+
+.btn-user-edit {
+  margin-left: 10px;
+  
+}

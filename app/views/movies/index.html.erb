@@ -3,16 +3,18 @@
 
 <main class="movies-main">
   <% @movies.each do |movie| %>
-  <div>
-    <%= raw movie.movie_url %>
-    <p>movie名：<%= movie.movie_name %></p>
-
-    <%= link_to movie_path(movie.id) do %>
-      <p>紹介詳細ページ</p>
-    <% end %>
-
-    <p>説明：<%= movie.caption %></p>
-    <p>movieを紹介したユーザー：<%= movie.user.name %></p>
+  <div class="movie-box">
+    <div class="movie-screen">
+      <%= raw movie.movie_url %>
+    </div>
+    <div class="movie-text">
+      <p>movie名：<%= movie.movie_name  %></p>
+      <p>説明：<%= movie.caption %></p>
+      <p>movieを紹介したユーザー：<%= movie.user.name %></p>
+      <%= link_to movie_path(movie.id) do %>
+        <p>紹介詳細ページ</p>
+      <% end %>
+    </div>
   </div>
   <% end %>
   <%= paginate @movies %>

@@ -121,3 +121,64 @@ input[type=checkbox]:checked ~ .sidebarIconToggle > .diagonal.part-2 {
   transform: rotate(-135deg);
   margin-top: -9px;
 }
+
+.movies-main {
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.movie-box {
+  padding-top: 20px;
+  display: flex;
+}
+
+.movie-text {
+  margin-left: 20px;
+}
+
+//new
+.new-movies-main {
+  width: 50%;
+  margin: 100px auto 0 auto;
+}
+
+.create-movie {
+  background:#1AAB8A;
+  color:#fff;
+  border:none;
+  position:relative;
+  height:60px;
+  font-size:1.6em;
+  padding:0 2em;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+}
+
+.create-movie:hover {
+  background:#fff;
+  color:#1AAB8A;
+}
+
+.create-movie:before,.create-movie:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #1AAB8A;
+  transition:400ms ease all;
+}
+
+.create-movie:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+.create-movie:hover:before,.create-movie:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}

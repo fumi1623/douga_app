@@ -1,18 +1,44 @@
-<div>
-  <h3><%= @user.name %></h3>
-  <% if @user.id == current_user.id %>
-    <p><%= link_to "プロフィール編集", edit_user_path(@user) %></p>
-  <% end %>
+<%= render 'movies/sideBar' %>
+
+<main class="my-page-main">
+
+<div class="container">
+  <div class="row">
+    <div class="my-page-edit col">
+      <h1>Your Infomation <i class="fas fa-user"></i></h1>
+      <div class="usei-info-box">
+        <div class="usei-info-detail">
+          <h4>・Your Name <i class="far fa-smile"></i></h4>
+          <p>　<%= @user.name  %></p>
+          <h4>・Your Email <i class="fas fa-envelope"></i></h4>
+          <p>　<%= @user.email %></p>
+          <button class="btn btn-success">
+            <%= link_to ' Edit User Info', edit_user_path(@user.id), class: 'btn-user-edit fas fa-user-cog ' %>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="my-page-movies col">
+      <h1>Your Movies <i class="far fa-play-circle"></i></h1>
+      <% @movies.each do |movie| %>
+      <div class="movie-box">
+        <div class="movie-screen">
+          <%= raw movie.movie_url %>
+        </div>
+        <div class="movie-text">
+          <p>movie名：<%= movie.movie_name  %></p>
+          <p>説明：<%= movie.caption %></p>
+          <%= link_to movie_path(movie.id) do %>
+            <p>紹介詳細ページ</p>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
+      <%= paginate @movies %>
+    </div>
+
+  </div>
 </div>
 
-<% @movies.each do |movie| %>
-<div>
-  <%= link_to movie_path(movie.id) do %>
-    <p>紹介詳細ページ</p>
-  <% end %>
-  <p>movie名：<%= movie.movie_name %></p>
-  <p>説明：<%= movie.caption %></p>
-  <p>ユーザーネーム：<%= movie.user.name %></p>
-</div>
-<% end %>
-<%= paginate @movies %>
+</main>
